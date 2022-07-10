@@ -22,6 +22,7 @@ void print_str(va_list vargs, int *ptr2count)
 		_putchar('l');
 		_putchar('l');
 		_putchar(')');
+		*ptr2count += 6;
 		return;
 	}
 
