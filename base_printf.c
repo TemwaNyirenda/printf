@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stddef.h>
 #include <stdarg.h>
-#include <stdio.h>
 
 /**
  * _printf - prints a string using _putchar
@@ -47,6 +46,5 @@ int _printf(const char *format, ...)
 		_putchar(format[i]);
 		count++;
 	}
-	printf("\tCount is %d\n", count);
 	return (count);
 }
