@@ -12,20 +12,19 @@ int _printf(const char *format, ...)
 {
 	int i, j, count = 0, *ptr2count = &count;
 	va_list vargs;
-	all_formats format_func[] = {
-		{'c', print_char},
-		{'s', print_str}
-	};
+	all_formats format_func[] = {{'c', print_char},	{'s', print_str}};
 
 	va_start(vargs, format);
-
 	if (format == NULL)
 		return (-1);
-
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
+			while (format[i + 1] == ' ')
+				i++;
+			if (format[i + 1] == '\0')
+				return (-1);
 			for (j = 0; j < 2; j++) /* increase j max w structs */
 			{
 				if (format[i + 1] == format_func[j].c)
