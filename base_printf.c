@@ -22,8 +22,6 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 
-	va_arg(vargs, char *);
-
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
@@ -44,10 +42,10 @@ int _printf(const char *format, ...)
 			}
 			continue;
 		}
-
 		_putchar(format[i]);
 		count++;
 	}
+	va_end(vargs);
 
 	return (count);
 }
