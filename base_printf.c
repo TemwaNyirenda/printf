@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 {
 	int i, j, count = 0, *ptr2count = &count;
 	va_list vargs;
-	all_formats format_func[] ={
+	all_formats format_func[] = {
 		{'c', print_char},
 		{'s', print_str}
 	};
