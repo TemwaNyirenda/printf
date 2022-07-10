@@ -14,6 +14,4 @@ void print_char(va_list vargs, int *ptr2count)
 
 	_putchar(c);
 	*ptr2count += 1;
-
-	return;
 }
