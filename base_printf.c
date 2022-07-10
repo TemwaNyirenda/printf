@@ -20,13 +20,15 @@ int _printf(const char *format, ...)
 	va_start(vargs, format);
 
 	if (format == NULL)
-		return (0);
+		return (-1);
+
+	va_arg(vargs, char *);
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
-			for (j = 0; j < 2; j++)/* increase j max w structs */
+			for (j = 0; j < 2; j++) /* increase j max w structs */
 			{
 				if (format[i + 1] == format_func[j].c)
 				{
