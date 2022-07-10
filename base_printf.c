@@ -14,7 +14,8 @@ int _printf(const char *format, ...)
 	int i, j, count = 0, *ptr2count = &count;
 	va_list vargs;
 	all_formats format_func[] ={
-		{'c', print_char}
+		{'c', print_char},
+		{'s', print_str}
 	};
 
 	va_start(vargs, format);
@@ -26,7 +27,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			for (j = 0; j < 1; j++)/* increase j max w structs */
+			for (j = 0; j < 2; j++)/* increase j max w structs */
 			{
 				if (format[i + 1] == format_func[j].c)
 				{
