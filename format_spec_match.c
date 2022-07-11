@@ -17,11 +17,15 @@ int format_spec_match(char c, va_list vargs, int *ptr2count)
 		{'s', print_str},
 		{'i', print_int},
 		{'d', print_int},
-		{'b', print_binary}
+		{'b', print_binary},
+		{'u', print_unsigned},
+		{'o', print_octal},
+		{'x', print_hexadecimal_low},
+		{'X', print_hexadecimal_upp}
 	};
 	int j;
 
-	for (j = 0; j < 6; j++) /* increase j max w structs */
+	for (j = 0; j < 10; j++) /* increase j max w structs */
 	{
 		if (c == format_func[j].c)
 		{
