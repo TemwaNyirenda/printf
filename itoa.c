@@ -11,8 +11,8 @@ char *itoa(long int num, int base)
 {
 	static char *array = "0123456789abcdef";
 	static char buffer[50];
-	char sig = 0;
-n	char *ptr;
+	char sign = 0;
+	char *ptr;
 	unsigned long n = num;
 
 	if (num < 0)

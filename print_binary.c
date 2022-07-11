@@ -1,18 +1,32 @@
 #include "main.h"
+#include <stdarg.h>
+#include <stddef.h>
 
 /**
  * print_binary - Print a number in base 2
- * @list: Number to print in base 2
- * Return: Length of the numbers in binary
+ * @vargs: Number to print in base 10
+ * @ptr2count: pointer to overall count of printed characters
+ * @buffer: buffer where all chars will be printed
+ * @buf_index: current index of buffer
+ *
+ * Return: nothing (void)
  **/
-int print_binary(va_list list)
+void print_binary(va_list vargs, int *ptr2count, char *buffer, int *buf_index)
 {
 	char *p_buff;
-	int size;
+	int i;
 
-	p_buff = itoa(va_arg(list, unsigned int), 2);
+	p_buff = itoa(va_arg(vargs, unsigned int), 2);
 
-	size = print(p_buff);
+	if (p_buff == NULL)
+	{
+		p_buff = "(null)";
+	}
 
-	return (size);
+	for (i = 0; p_buff[i] != '\0'; i++)
+	{
+		buffer[*buf_index] = p_buff[i];
+		*buf_index += 1;
+		*ptr2count += 1;
+	}
 }
