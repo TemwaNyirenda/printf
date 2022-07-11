@@ -5,6 +5,7 @@
 
 int _putchar(char c);
 int _printf(const char *format, ...);
+int format_spec_match(char c, va_list vargs, int *ptr2count);
 void print_perc(va_list __attribute__ ((unused)) vargs, int *ptr2count);
 void print_char(va_list vargs, int *ptr2count);
 void print_str(va_list vargs, int *ptr2count);
