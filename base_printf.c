@@ -16,13 +16,14 @@ int _printf(const char *format, ...)
 	va_list vargs;
 	char *buffer;
 
+	if (format == NULL)
+		return (-1);
+
 	buffer = malloc(sizeof(char) * 1024);
 	if (buffer == NULL)
 		return (-1);
 
 	va_start(vargs, format);
-	if (format == NULL)
-		return (-1);
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
