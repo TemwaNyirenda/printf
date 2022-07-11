@@ -10,11 +10,8 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, j, count = 0, *ptr2count = &count, format_spec_match;
+	int i, count = 0, *ptr2count = &count, check;
 	va_list vargs;
-	all_formats format_func[] = {{'%', print_perc}, {'c', print_char},
-		{'s', print_str}, {'i', print_int}, {'d', print_int},
-		{'b', print_binary}};
 
 	va_start(vargs, format);
 	if (format == NULL)
@@ -23,22 +20,18 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			format_spec_match = 0;
 			while (format[i + 1] == ' ')
 				i++;
 			if (format[i + 1] == '\0')
 				return (-1);
-			for (j = 0; j < 6; j++) /* increase j max w structs */
+
+			check = format_spec_match(format[i + 1], vargs,
+				ptr2count); /* check if there was a match */
+			if (check != 0) /* there was a match */
 			{
-				if (format[i + 1] == format_func[j].c)
-				{
-					format_func[j].f(vargs, ptr2count);
-					i++;
-					format_spec_match++;
-				}
-			}
-			if (format_spec_match != 0) /* there was a match */
+				i++;
 				continue;
+			}
 		}
 		_putchar(format[i]);
 		count++;
