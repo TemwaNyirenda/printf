@@ -4,6 +4,7 @@
  * format_spec_match - checks if there is a format specification match
  *	and if there is, sends it to respective function
  * @c: character to be checked if it matches any format specification
+ * @vargs: variadic list of arguments from base_printf
  * @ptr2count: overall count of characters printed
  *
  * Return: 1 if there was a match, 0 if there wasn't a match
