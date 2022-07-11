@@ -5,6 +5,8 @@
 #include <stddef.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <limits.h> /**added**/
+#include <stdio.h> /**added**/
 
 int _putchar(char c);
 int _printf(const char *format, ...);
@@ -14,6 +16,9 @@ int print_unsigned(va_list);
 int print_octal(va_list);
 int print_hexadecimal_low(va_list);
 int print_hexadecimal_upp(va_list);
+int printf_rev(va_list args); /**added*/
+int rev_string(char *s); /**added**/
+int printf_rot13(va_list args); /**added**/
 /**
  * itoa - converts integer to a string
  */
