@@ -3,9 +3,11 @@
 #include <stdarg.h>
 
 /**
- * print_integer - Print a number in base 10
- * @list: Number to print in base 10
- * Return: Length of th numbers in decimal
+ * print_int - Print a number in base 10
+ * @vargs: Number to print in base 10
+ * @ptr2count: pointer to overall count of printed characters
+ *
+ * Return: nothing (void)
  **/
 void print_int(va_list vargs, int *ptr2count)
 {
@@ -13,7 +15,7 @@ void print_int(va_list vargs, int *ptr2count)
 	int i;
 
 	p_buff = itoa(va_arg(vargs, int), 10);
-	
+
 	if (p_buff == NULL)
 	{
 		_putchar('(');
