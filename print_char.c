@@ -15,6 +15,9 @@ void print_char(va_list vargs, int *ptr2count, char *buffer, int *buf_index)
 	char c = va_arg(vargs, int);
 
 	buffer[*buf_index] = c;
-	*buf_index += 1;
-	*ptr2count += 1;
+	if (c != '\0')
+	{
+		*buf_index += 1;
+		*ptr2count += 1;
+	}
 }
