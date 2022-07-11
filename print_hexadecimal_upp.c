@@ -9,10 +9,13 @@ char *string_to_upper(char *);
  * print_hexadecimal_upp - Print a number in hexadecimal format
  * @vargs: Number to print
  * @ptr2count: pointer to overall count of printed characters
+ * @buffer: buffer where all chars will be printed
+ * @buf_index: current index of buffer
  *
  * Return: nothing (void)
  **/
-void print_hexadecimal_upp(va_list vargs, int *ptr2count)
+void print_hexadecimal_upp(va_list vargs, int *ptr2count, char *buffer,
+		int *buf_index)
 {
 	char *p_buff;
 	int i;
@@ -21,21 +24,15 @@ void print_hexadecimal_upp(va_list vargs, int *ptr2count)
 
 	if (p_buff == NULL)
 	{
-		_putchar('(');
-		_putchar('n');
-		_putchar('u');
-		_putchar('l');
-		_putchar('l');
-		_putchar(')');
-		*ptr2count += 6;
-		return;
+		p_buff = "(null)";
 	}
-
-	p_buff = string_to_upper(p_buff);
+	else
+		p_buff = string_to_upper(p_buff);
 
 	for (i = 0; p_buff[i] != '\0'; i++)
 	{
-		_putchar(p_buff[i]);
+		buffer[*buf_index] = p_buff[i];
+		*buf_index += 1;
 		*ptr2count += 1;
 	}
 }
