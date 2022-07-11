@@ -13,7 +13,8 @@ int _printf(const char *format, ...)
 	int i, j, count = 0, *ptr2count = &count, format_spec_match;
 	va_list vargs;
 	all_formats format_func[] = {{'%', print_perc}, {'c', print_char},
-		{'s', print_str}, {'i', print_int}, {'d', print_int}};
+		{'s', print_str}, {'i', print_int}, {'d', print_int},
+		{'b', print_binary}};
 
 	va_start(vargs, format);
 	if (format == NULL)
@@ -27,7 +28,7 @@ int _printf(const char *format, ...)
 				i++;
 			if (format[i + 1] == '\0')
 				return (-1);
-			for (j = 0; j < 5; j++) /* increase j max w structs */
+			for (j = 0; j < 6; j++) /* increase j max w structs */
 			{
 				if (format[i + 1] == format_func[j].c)
 				{
