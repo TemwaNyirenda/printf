@@ -5,17 +5,26 @@
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-int format_spec_match(char c, va_list vargs, int *ptr2count);
-void print_perc(va_list __attribute__ ((unused)) vargs, int *ptr2count);
-void print_char(va_list vargs, int *ptr2count);
-void print_str(va_list vargs, int *ptr2count);
-void print_int(va_list vargs, int *ptr2count);
+int format_spec_match(char c, va_list vargs, int *ptr2count, char *buffer,
+		int *buf_index);
+
+void print_perc(va_list __attribute__ ((unused)) vargs, int *ptr2count,
+		char *buffer, int *buf_index);
+void print_char(va_list vargs, int *ptr2count, char *buffer, int *buf_index);
+void print_str(va_list vargs, int *ptr2count, char *buffer, int *buf_index);
+
+void print_int(va_list vargs, int *ptr2count, char *buffer, int *buf_index);
 char *itoa(long int num, int base);
-void print_binary(va_list vargs, int *ptr2count);
-void print_unsigned(va_list vargs, int *ptr2count);
-void print_octal(va_list args, int *ptr2count);
-void print_hexadecimal_low(va_list vargs, int *ptr2count);
-void print_hexadecimal_upp(va_list vargs, int *ptr2count);
+
+void print_binary(va_list vargs, int *ptr2count, char *buffer, int *buf_index);
+
+void print_unsigned(va_list vargs, int *ptr2count, char *buffer,
+		int *buf_index);
+void print_octal(va_list args, int *ptr2count, char *buffer, int *buf_index);
+void print_hexadecimal_low(va_list vargs, int *ptr2count, char *buffer,
+		int *buf_index);
+void print_hexadecimal_upp(va_list vargs, int *ptr2count, char *buffer,
+		int *buf_index);
 
 
 /**
@@ -26,7 +35,7 @@ void print_hexadecimal_upp(va_list vargs, int *ptr2count);
 typedef struct format_list
 {
 	char c;
-	void (*f)(va_list vargs, int *ptr2count);
+	void (*f)(va_list vargs, int *ptr2count, char *buffer, int *buf_index);
 } all_formats;
 
 #endif

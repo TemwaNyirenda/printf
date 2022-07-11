@@ -1,6 +1,8 @@
 #include "main.h"
 #include <stddef.h>
 #include <stdarg.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 /**
  * _printf - prints a string using _putchar
@@ -10,8 +12,13 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, count = 0, *ptr2count = &count, check;
+	int i, count = 0, *ptr2count = &count, check,  j = 0, *buf_index = &j;
 	va_list vargs;
+	char *buffer;
+
+	buffer = malloc(sizeof(char) * 1024);
+	if (buffer == NULL)
+		return (-1);
 
 	va_start(vargs, format);
 	if (format == NULL)
@@ -26,17 +33,20 @@ int _printf(const char *format, ...)
 				return (-1);
 
 			check = format_spec_match(format[i + 1], vargs,
-				ptr2count); /* check if there was a match */
+				ptr2count, buffer, buf_index); /* match? */
 			if (check != 0) /* there was a match */
 			{
 				i++;
 				continue;
 			}
 		}
-		_putchar(format[i]);
+		buffer[j] = format[i];
 		count++;
+		j++;
 	}
 	va_end(vargs);
 
+	write(1, buffer, count);
+	free(buffer);
 	return (count);
 }

@@ -6,29 +6,25 @@
  * print_str - prints a string
  * @vargs: variadic argument string that will be printed
  * @ptr2count: pointer to overall count of characters printed
+ * @buffer: buffer where all chars will be printed
+ * @buf_index: current index of buffer
  *
  * Return: nothing (void)
  */
-void print_str(va_list vargs, int *ptr2count)
+void print_str(va_list vargs, int *ptr2count, char *buffer, int *buf_index)
 {
 	int i;
 	char *str = va_arg(vargs, char *);
 
 	if (str == NULL)
 	{
-		_putchar('(');
-		_putchar('n');
-		_putchar('u');
-		_putchar('l');
-		_putchar('l');
-		_putchar(')');
-		*ptr2count += 6;
-		return;
+		str = "(null)";
 	}
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		_putchar(str[i]);
+		buffer[*buf_index] = str[i];
+		*buf_index += 1;
 		*ptr2count += 1;
 	}
 }
