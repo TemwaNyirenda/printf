@@ -1,33 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
-
 #include <stdarg.h>
-<<<<<<< HEAD
-#include <stddef.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <limits.h> /**added**/
-#include <stdio.h> /**added**/
-
-int _putchar(char c);
-int _printf(const char *format, ...);
-int print_integer(va_list);
-int print_binary(va_list);
-int print_unsigned(va_list);
-int print_octal(va_list);
-int print_hexadecimal_low(va_list);
-int print_hexadecimal_upp(va_list);
-int printf_rev(va_list args); /**added*/
-int rev_string(char *s); /**added**/
-int printf_rot13(va_list args); /**added**/
-/**
- * itoa - converts integer to a string
- */
-char *itoa(long int, int);
-void print_perc(va_list __attribute__ ((unused)) vargs, int *ptr2count);
-void print_char(va_list vargs, int *ptr2count);
-void print_str(va_list vargs, int *ptr2count);
-=======
 
 int _putchar(char c);
 int _printf(const char *format, ...);
@@ -61,7 +34,6 @@ char *string_to_upper(char *s);
 /* Task #5 */
 void print_capitalS(va_list vargs, int *ptr2count, char *buffer,
                 int *buf_index);
->>>>>>> 892691c96f1c9f8c9dd59cde53a4d0347f9d343b
 
 /**
  * format_list - a struct with matching format specifiers with their functions
