@@ -24,11 +24,12 @@ int format_spec_match(char c, va_list vargs, int *ptr2count, char *buffer,
 		{'u', print_unsigned},
 		{'o', print_octal},
 		{'x', print_hexadecimal_low},
-		{'X', print_hexadecimal_upp}
+		{'X', print_hexadecimal_upp},
+		{'S', print_capitalS}
 	};
 	int j;
 
-	for (j = 0; j < 10; j++) /* increase j max w structs */
+	for (j = 0; j < 11; j++) /* increase j max w structs */
 	{
 		if (c == format_func[j].c)
 		{
