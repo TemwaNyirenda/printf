@@ -12,6 +12,11 @@ void print_str(va_list vargs, int *ptr2count);
 void print_int(va_list vargs, int *ptr2count);
 char *itoa(long int num, int base);
 void print_binary(va_list vargs, int *ptr2count);
+void print_unsigned(va_list vargs, int *ptr2count);
+void print_octal(va_list args, int *ptr2count);
+void print_hexadecimal_low(va_list vargs, int *ptr2count);
+void print_hexadecimal_upp(va_list vargs, int *ptr2count);
+
 
 /**
  * format_list - a struct with matching format specifiers with their functions
