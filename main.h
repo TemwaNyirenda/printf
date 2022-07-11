@@ -21,6 +21,8 @@ char *itoa(long int, int);
 void print_perc(va_list __attribute__ ((unused)) vargs, int *ptr2count);
 void print_char(va_list vargs, int *ptr2count);
 void print_str(va_list vargs, int *ptr2count);
+void print_int(va_list vargs, int *ptr2count);
+char *itoa(long int num, int base);
 
 /**
  * format_list - a struct with matching format specifiers with their functions
