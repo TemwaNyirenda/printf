@@ -29,6 +29,7 @@ int format_spec_match(char c, va_list vargs, int *ptr2count, char *buffer,
 		{'S', print_capitalS},
 		{'p', print_pointer},
 		{'r', print_rev_str},
+		{'R', print_rot13},
 		{'\0', NULL}
 	};
 	int j;
