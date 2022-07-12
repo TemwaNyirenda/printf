@@ -35,6 +35,7 @@ void print_hexadecimal_upp(va_list vargs, int *ptr2count, char *buffer,
 		*buf_index += 1;
 		*ptr2count += 1;
 	}
+
 }
 
 /**
