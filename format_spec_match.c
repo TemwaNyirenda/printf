@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h>
 
 /**
  * format_spec_match - checks if there is a format specification match
@@ -26,11 +27,13 @@ int format_spec_match(char c, va_list vargs, int *ptr2count, char *buffer,
 		{'x', print_hexadecimal_low},
 		{'X', print_hexadecimal_upp},
 		{'S', print_capitalS},
-		{'p', print_pointer}
+		{'p', print_pointer},
+		{'r', print_rev_str},
+		{'\0', NULL}
 	};
 	int j;
 
-	for (j = 0; j < 12; j++) /* increase j max w structs */
+	for (j = 0; format_func[j].c != '\0'; j++)
 	{
 		if (c == format_func[j].c)
 		{
