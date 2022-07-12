@@ -41,6 +41,9 @@ void print_pointer(va_list vargs, int *ptr2count, char *buffer,
 void print_rev_str(va_list vargs, int *ptr2count, char *buffer,
 		int *buf_index);
 
+/* Prints a rot13'd string */
+void print_rot13(va_list vargs, int *ptr2count, char *buffer, int *buf_index);
+
 /* Support functions */
 int is_lowercase(char c);
 char *string_to_upper(char *s);
