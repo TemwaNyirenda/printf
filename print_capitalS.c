@@ -11,7 +11,8 @@
  *
  * Return: nothing (void)
  */
-void print_capitalS(va_list vargs, int *ptr2count, char *buffer, int *buf_index)
+void print_capitalS(va_list vargs, int *ptr2count, char *buffer,
+		int *buf_index)
 {
 	int i, j;
 	char *str = va_arg(vargs, char *);

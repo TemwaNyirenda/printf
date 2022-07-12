@@ -36,6 +36,10 @@ char *string_to_upper(char *s);
 void print_capitalS(va_list vargs, int *ptr2count, char *buffer,
                 int *buf_index);
 
+/* Task #6 */
+void print_pointer(va_list vargs, int *ptr2count, char *buffer,
+		int *buf_index);
+
 /**
  * format_list - a struct with matching format specifiers with their functions
  * @c: format specifier
