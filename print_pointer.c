@@ -22,7 +22,7 @@ void print_pointer(va_list vargs, int *ptr2count, char *buffer, int *buf_index)
 	ptr_str = itoa(ptr2, 16);
 	if (ptr_str == NULL)
 	{
-		ptr_str = "(null)";
+		ptr_str = "(nil)";
 	}
 
 	if (ptr_str != NULL)
