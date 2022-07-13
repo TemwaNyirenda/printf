@@ -12,7 +12,8 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, count = 0, *ptr2count = &count, check,  j = 0, *buf_index = &j;
+	int i = 0, count = 0, check,  j = 0;
+	int *ptr2count = &count, *buf_index = &j, *format_i = &i;
 	va_list vargs;
 	char *buffer;
 
@@ -28,13 +29,11 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			while (format[i + 1] == ' ')
-				i++;
 			if (format[i + 1] == '\0')
 				return (-1);
 
-			check = format_spec_match(format[i + 1], vargs,
-				ptr2count, buffer, buf_index); /* match? */
+			check = format_flag(format, format_i, vargs, ptr2count,
+				       buffer, buf_index);/* check for match */
 			if (check != 0) /* there was a match */
 			{
 				i++;

@@ -8,11 +8,12 @@
  * @ptr2count: pointer to overall count of characters printed
  * @buffer: buffer where all chars will be printed
  * @buf_index: current index of buffer
+ * @flag: indicates what flag characters there are
  *
  * Return: nothing (void)
  */
 void print_capitalS(va_list vargs, int *ptr2count, char *buffer,
-		int *buf_index)
+	int *buf_index, int __attribute__ ((unused)) *flag)
 {
 	int i, j;
 	char *str = va_arg(vargs, char *);
