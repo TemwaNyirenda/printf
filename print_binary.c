@@ -8,10 +8,12 @@
  * @ptr2count: pointer to overall count of printed characters
  * @buffer: buffer where all chars will be printed
  * @buf_index: current index of buffer
+ * @flag: indicates what flag characters there are
  *
  * Return: nothing (void)
  **/
-void print_binary(va_list vargs, int *ptr2count, char *buffer, int *buf_index)
+void print_binary(va_list vargs, int *ptr2count, char *buffer,
+	int *buf_index, int __attribute__ ((unused)) *flag)
 {
 	char *p_buff;
 	int i;

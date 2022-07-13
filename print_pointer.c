@@ -9,10 +9,12 @@
  * @ptr2count: pointer to overall count of characters printed
  * @buffer: buffer where all chars will be printed
  * @buf_index: current index of buffer
+ * @flag: indicates what flag characters there are
  *
  * Return: nothing (void)
  */
-void print_pointer(va_list vargs, int *ptr2count, char *buffer, int *buf_index)
+void print_pointer(va_list vargs, int *ptr2count, char *buffer, int *buf_index,
+	int *flag)
 {
 	int i;
 	void *ptr = va_arg(vargs, void *);
@@ -23,6 +25,19 @@ void print_pointer(va_list vargs, int *ptr2count, char *buffer, int *buf_index)
 	if (ptr_str == NULL)
 	{
 		ptr_str = "(nil)";
+	}
+
+	if (*flag == 1)
+	{
+		buffer[*buf_index] = '+';
+		*buf_index += 1;
+		*ptr2count += 1;
+	}
+	if (*flag == 2)
+	{
+		buffer[*buf_index] = ' ';
+		*buf_index += 1;
+		*ptr2count += 1;
 	}
 
 	if (ptr_str != NULL)

@@ -8,11 +8,12 @@
  * @ptr2count: pointer to overall count of printed characters
  * @buffer: buffer where all chars will be printed
  * @buf_index: current index of buffer
+ * @flag: indicates what flag characters there are
  *
  * Return: nothing (void)
  **/
 void print_hexadecimal_low(va_list vargs, int *ptr2count, char *buffer,
-		int *buf_index)
+	int *buf_index, int __attribute__ ((unused)) *flag)
 {
 	char *p_buff;
 	int i;
@@ -24,6 +25,14 @@ void print_hexadecimal_low(va_list vargs, int *ptr2count, char *buffer,
 		p_buff = "(null)";
 	}
 
+	if (*flag == 3 && p_buff != NULL && p_buff[0] != '0')
+	{
+		buffer[*buf_index] = '0';
+		*buf_index += 1;
+		buffer[*buf_index] = 'x';
+		*buf_index += 1;
+		*ptr2count += 2;
+	}
 	for (i = 0; p_buff[i] != '\0'; i++)
 	{
 		buffer[*buf_index] = p_buff[i];
